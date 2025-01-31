@@ -26,7 +26,7 @@ function App() {
 
     try {
       // Envia os arquivos ao backend
-      const response = await fetch("http://localhost:5000/upload", {
+      const response = await fetch("https://seu-backend.vercel.app/upload", {
         method: "POST",
         body: formData,
       });
