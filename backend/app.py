@@ -13,6 +13,11 @@ import os
 app = Flask(__name__)
 CORS(app)  # Permite o CORS para comunicação com o front-end
 
+# Rota de saúde para verificar se o backend está ok
+@app.route('/health', methods=['GET'])
+def health_check():
+    return jsonify({"message": "O back está ok"}), 200
+
 @app.route('/upload', methods=['POST'])
 def upload_files():
 

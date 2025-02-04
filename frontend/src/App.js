@@ -6,6 +6,13 @@ function App() {
   const [showResults, setShowResults] = useState(false); // Controla a exibição dos resultados
   const [backendResponse, setBackendResponse] = useState(null);
 
+  useEffect(() => {
+    fetch("https://seu-backend.vercel.app/health")
+      .then((res) => res.json())
+      .then((data) => alert(data.message)) // Mostra popup com "O back está ok"
+      .catch((err) => console.error("Erro ao conectar ao backend:", err));
+  }, []);
+
   const handlePdfChange = (e) => {
     const file = e.target.files[0];
     setPdf(file);
